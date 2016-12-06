@@ -55,6 +55,20 @@ margin-top: 25px;
 	position: relative;
 	top:30vh;
 	transition: all .9s ;
+}.resultAll{
+	margin-top: 40px;
+}li{
+	background-color: #ecf0f1;
+	padding:20px;
+	margin-bottom: 10px;
+	list-style-type:none;
+	box-shadow: 1px 1px 5px 1px;
 
+}li:hover{
+	border-left: 10px solid #3498db;
+	transition: all .5s ;
+}.title{
+	font-size: 22px;
+	font-family: "lato";
 
 }
