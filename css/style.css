@@ -30,9 +30,9 @@ img:hover{
 }
 input[type="text"] {
   height: 60px;
-  font-size: 35px;
+  font-size: 25px;
   display: none;
-  font-family: "Lato";
+  font-family: "monospace";
   font-weight: 100;
   border: none;
   outline: none;
@@ -47,6 +47,8 @@ margin-top: 25px;
 
   border-bottom: 1px solid white;
   cursor: text;
+}::-webkit-input-placeholder {
+   color:#bdc3c7 ;
 }.search{
 	width: auto;
 	height: auto;
