@@ -9,12 +9,10 @@ $(document).ready(function () {
  var call='&callback=JSON_CALLBACK';
  var myData;
  var all=[];
- //var result=[];
  var page = 'https://en.wikipedia.org/?curid=';
-	$("input").keypress(function(e) {
-            if(e.which == 10 || e.which == 13) {
-                $(".search").css("top","1vh");
-				search = $(this).val();
+	var wiki = function (){
+		$(".search").css("top","1vh");
+
 
 				$.ajax({
 
@@ -24,19 +22,31 @@ $(document).ready(function () {
     crossDomain: true,
     dataType: 'jsonp',
     success: function(myData) {
+
 	all = myData.query.pages;
 		for (var i in all){
 			result.push({title:all[i].title,content:all[i].extract,pageid:all[i].pageid});
 		};
 		for(var i in result){
-			$(".resultAll ul").addClass("animated fadeInUp").append('<li><a href="'+page+result[i].pageid+'" target="_blank"><p class="title">'+result[i].title+'</p><p>'+result[i].content+'</p></a></li>');
+			$(".resultAll").append('<div class="res animated fadeInUp"><li><a href="'+page+result[i].pageid+'" target="_blank"><p class="title">'+result[i].title+'</p><p>'+result[i].content+'</p></a></li></div>');
 		};
-
+        all=[];
+		result=[];
 
 	},
     error: function() { alert('connection with wikipedia server Failed!'); }
 
 });
+
+	};
+	$(document).keypress(function(e) {
+		search = $("input").val();
+            if(e.which == 10 || e.which == 13) {
+					$(".res").removeClass("fadeInUp").addClass("fadeOutRight");
+				    $(".resultAll").empty();
+				    $("input").empty();
+					wiki();
+
 
             }
 
