@@ -1,3 +1,4 @@
+var result=[];
 $(document).ready(function () {
 	$("img").on('click',function () {
 		$(this).addClass('animated fadeOutUp').css({display : "none"});
@@ -8,6 +9,7 @@ $(document).ready(function () {
  var call='&callback=JSON_CALLBACK';
  var myData;
  var all=[];
+ //var result=[];
  var page = 'https://en.wikipedia.org/?curid=';
 	$("input").keypress(function(e) {
             if(e.which == 10 || e.which == 13) {
@@ -22,8 +24,14 @@ $(document).ready(function () {
     crossDomain: true,
     dataType: 'jsonp',
     success: function(myData) {
-		var result=myData.query.pages;
-	$(".resultAll ul").html(JSON.stringify(result));
+	all = myData.query.pages;
+		for (var i in all){
+			result.push({title:all[i].title,content:all[i].extract,pageid:all[i].pageid});
+		};
+		for(var i in result){
+			$(".resultAll ul").addClass("animated fadeInUp").append('<li><a href="'+page+result[i].pageid+'" target="_blank"><p class="title">'+result[i].title+'</p><p>'+result[i].content+'</p></a></li>');
+		};
+
 
 	},
     error: function() { alert('connection with wikipedia server Failed!'); }

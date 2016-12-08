@@ -67,8 +67,14 @@ margin-top: 25px;
 }li:hover{
 	border-left: 10px solid #3498db;
 	transition: all .5s ;
+	text-decoration: none;
 }.title{
 	font-size: 22px;
 	font-family: "lato";
+
+}a{
+	text-decoration: none;
+}a:hover{
+	text-decoration: none;
 
 }
