@@ -83,4 +83,9 @@ margin-top: 25px;
 	position: relative;
 	left:40.5%;
 
+}.load{
+	position: relative;
+	left:49%;
+	display:none;
+	overflow: hidden;
 }

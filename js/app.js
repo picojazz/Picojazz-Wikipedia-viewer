@@ -22,6 +22,7 @@ $(document).ready(function () {
     crossDomain: true,
     dataType: 'jsonp',
     success: function(myData) {
+		$(".load").hide();
 
 	all = myData.query.pages;
 		for (var i in all){
@@ -42,6 +43,7 @@ $(document).ready(function () {
 	$(document).keypress(function(e) {
 		search = $("input").val();
             if(e.which == 10 || e.which == 13) {
+				$(".load").show();
 					$(".res").removeClass("fadeInUp").addClass("fadeOutRight");
 				    $(".resultAll").empty();
 				    $("input").empty();
